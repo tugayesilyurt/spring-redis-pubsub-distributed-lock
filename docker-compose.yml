@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+
+  redis-master:
+    container_name: redis-master
+    image: 'bitnami/redis:latest'
+    environment:
+      - REDIS_AOF_ENABLED=yes
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/bitnami/redis/data
+
+  mysql-database:
+    image: mysql:latest
+    container_name: mysql-test
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: lock
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: 123456   
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks: 
+      - test-network 
+      
+volumes:
+  mysql-data:
+      driver: local
+      
+networks: 
+  test-network:
+    driver: bridge

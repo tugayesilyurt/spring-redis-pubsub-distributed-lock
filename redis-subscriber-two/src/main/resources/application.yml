@@ -1,0 +1,16 @@
+server:
+  port: 8002
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lock
+    username: admin
+    password: 123456
+  jpa:
+    generate-ddl: true
+    properties:
+      dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
