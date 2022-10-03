@@ -51,5 +51,5 @@ lock.unlock();
 
 - **System Design**
 
-![System Design](https://github.com/tugayesilyurt/spring-redis-pubsub-distributed-lock/blob/main/assets/ReadJson.PNG)
+![System Design](https://github.com/tugayesilyurt/spring-redis-pubsub-distributed-lock/blob/main/assets/design.PNG)
 
